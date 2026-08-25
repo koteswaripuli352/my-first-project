@@ -1,0 +1,15 @@
+# Bundled skill/reference docs — not part of the app
+.agents/
+.claude/skills/
+skills-lock.json
+
+# Python
+__pycache__/
+*.pyc
+
+# Web app
+web/node_modules/
+web/dist/
+web/.env
+web/.env.local
+web/*.local
