@@ -8,10 +8,11 @@ const API_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
  *
  * @param {{role: "user"|"model", text: string}[]} history - prior turns, oldest first
  * @param {string} apiKey - Gemini API key (from https://aistudio.google.com/apikey)
- * @param {string} model - model id, e.g. "gemini-2.5-flash"
+ * @param {string} model - model id, e.g. "gemini-3.6-flash"
+ * @param {AbortSignal} [signal] - lets the caller cancel an in-flight request
  * @returns {Promise<string>} the model's reply text
  */
-export async function sendMessage(history, apiKey, model) {
+export async function sendMessage(history, apiKey, model, signal) {
   if (!apiKey) {
     throw new Error(
       "Missing Gemini API key. Set VITE_GEMINI_API_KEY in web/.env and restart the dev server."
@@ -31,6 +32,7 @@ export async function sendMessage(history, apiKey, model) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
+    signal,
   });
 
   if (!res.ok) {

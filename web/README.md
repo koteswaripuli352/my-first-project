@@ -8,8 +8,9 @@ A minimal React chat UI that talks directly to the Google Gemini API
 1. Get an API key: https://aistudio.google.com/apikey
 2. Copy `.env.example` to `.env` and paste your key into
    `VITE_GEMINI_API_KEY`. `VITE_GEMINI_MODEL` defaults to
-   `gemini-2.5-flash` — change it if you want a different model id
-   (see https://ai.google.dev/gemini-api/docs/models for current ids).
+   `gemini-3.6-flash` (`gemini-2.5-flash` has been retired) — change
+   it if you want a different model id (see
+   https://ai.google.dev/gemini-api/docs/models for current ids).
 3. Install dependencies:
 
    ```
